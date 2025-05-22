@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnumberf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbelece- <jbelece-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 16:01:42 by jbelece-          #+#    #+#             */
-/*   Updated: 2025/05/22 18:39:26 by jbelece-         ###   ########.fr       */
+/*   Created: 2025/05/22 18:38:55 by jbelece-          #+#    #+#             */
+/*   Updated: 2025/05/22 18:48:21 by jbelece-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_putnumberf(int number)
+{
+	int count;
 
-int		ft_putcharf(char c);
-int		ft_putstringf(char *s);
-int		ft_puthexf(unsigned long number, char c);
-int		ft_putpointerf(void *ptr);
-int		ft_putnumberf(int number);
-int		ft_printf(const char *format, ...);
-
-#endif
+	count = 0;
+	if (number == -2147483648)
+		count += ft_putstringf("-2147483648");
+	else
+	{
+		if (number < 0)
+		{
+			count += ft_putcharf('-');
+			number = -number;
+		}
+		if (number >= 10)
+		{
+			count += ft_putnumberf(number / 10);
+		}
+		count += ft_putcharf((number % 10 ) + '0');
+	}
+	return (count);
+}

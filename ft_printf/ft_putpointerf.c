@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putpointerf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbelece- <jbelece-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 16:01:42 by jbelece-          #+#    #+#             */
-/*   Updated: 2025/05/22 18:39:26 by jbelece-         ###   ########.fr       */
+/*   Created: 2025/05/22 02:53:28 by jbelece-          #+#    #+#             */
+/*   Updated: 2025/05/22 17:48:21 by jbelece-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_putpointerf(void *ptr)
+{
+	unsigned long	address;
+	int				count;
 
-int		ft_putcharf(char c);
-int		ft_putstringf(char *s);
-int		ft_puthexf(unsigned long number, char c);
-int		ft_putpointerf(void *ptr);
-int		ft_putnumberf(int number);
-int		ft_printf(const char *format, ...);
-
-#endif
+	address = (unsigned long) ptr;
+	count = 0;
+	if (!address)
+	{
+		count += ft_putstringf("(nil)");
+		return (count);
+	}
+	count += ft_putstringf("0x");
+	count += ft_puthexf(address, 'x');
+	return (count);
+}

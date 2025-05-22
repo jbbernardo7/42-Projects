@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_puthexf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbelece- <jbelece-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 16:01:42 by jbelece-          #+#    #+#             */
-/*   Updated: 2025/05/22 18:39:26 by jbelece-         ###   ########.fr       */
+/*   Created: 2025/05/22 17:31:43 by jbelece-          #+#    #+#             */
+/*   Updated: 2025/05/22 17:43:15 by jbelece-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_puthexf(unsigned long number, char c)
+{
+	int		count;
+	char	*base;
 
-int		ft_putcharf(char c);
-int		ft_putstringf(char *s);
-int		ft_puthexf(unsigned long number, char c);
-int		ft_putpointerf(void *ptr);
-int		ft_putnumberf(int number);
-int		ft_printf(const char *format, ...);
-
-#endif
+	count = 0;
+	base = "0123456789abcdef";
+	if (c != 'x')
+		base = "0123456789ABCDEF";
+	if (number >= 16)
+		count += ft_puthexf(number / 16, c);
+	count += ft_putcharf(base[number % 16]);
+	return (count);
+}
