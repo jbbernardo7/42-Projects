@@ -6,7 +6,7 @@
 /*   By: jbelece- <jbelece-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 16:21:19 by jbelece-          #+#    #+#             */
-/*   Updated: 2025/05/22 18:37:59 by jbelece-         ###   ########.fr       */
+/*   Updated: 2025/05/23 02:37:40 by jbelece-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,11 @@ static int	convert(va_list arg, char format)
 		return (ft_putpointerf(va_arg(arg, void *)));
 	else if (format == 'd' || format == 'i')
 		return (ft_putnumberf(va_arg(arg, int)));
-	return (1);
+	else if (format == 'u')
+		return (ft_putunumberf(va_arg(arg, unsigned int)));
+	else if (format == 'x' || format == 'X')
+		return (ft_puthexf(va_arg(arg, unsigned int), format));
+	return (ft_putcharf(format));
 }
 
 int	ft_printf(const char *format, ...)
@@ -60,7 +64,7 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-//test
+/*
 #include <stdio.h>
 #include <string.h>
 int	main(void)
@@ -93,9 +97,33 @@ int	main(void)
 	printf("Return difference: %d\n\n", diff);
 
 	//Integer
-	strcpy(test, "Hello this is a 731: '%d'.\n");
-	diff += ft_printf(test, 731);
-	diff -= printf(test, 731);
+	strcpy(test, "Hello this is a -731: '%d'.\n");
+	diff += ft_printf(test, -731);
+	diff -= printf(test, -731);
+	printf("Return difference: %d\n\n", diff);
+
+	//Unsigned Integer
+	strcpy(test, "Hello this is a 1442: '%d'.\n");
+	diff += ft_printf(test, 1442);
+	diff -= printf(test, 1442);
+	printf("Return difference: %d\n\n", diff);
+
+	//Lowercase hexadecimal
+	strcpy(test, "Hello this is a 7abc7: '%x'.\n");
+	diff += ft_printf(test, 502727);
+	diff -= printf(test, 502727);
+	printf("Return difference: %d\n\n", diff);
+
+	//Percentage
+	strcpy(test, "Hello this is a %%\n");
+	diff += ft_printf(test);
+	diff -= printf(test);
+	printf("Return difference: %d\n\n", diff);
+
+	//Test
+	strcpy(test, "Hello this is a %%z \n");
+	diff += ft_printf(test);
+	diff -= printf(test);
 	printf("Return difference: %d\n\n", diff);
 	return (0);
-}
+}*/

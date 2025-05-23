@@ -6,7 +6,7 @@
 /*   By: jbelece- <jbelece-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 18:38:55 by jbelece-          #+#    #+#             */
-/*   Updated: 2025/05/22 18:48:21 by jbelece-         ###   ########.fr       */
+/*   Updated: 2025/05/23 02:01:32 by jbelece-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putnumberf(int number)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (number == -2147483648)
@@ -30,7 +30,7 @@ int	ft_putnumberf(int number)
 		{
 			count += ft_putnumberf(number / 10);
 		}
-		count += ft_putcharf((number % 10 ) + '0');
+		count += ft_putcharf((number % 10) + '0');
 	}
 	return (count);
 }
