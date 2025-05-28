@@ -18,7 +18,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 bonus: $(BOBJS)
-	ar rcs $(NAME) $(OBJS) $(BOBJS)
+	ar rcs $(NAME) $(BOBJS)
 
 %.o: %.c
 	cc -c $(CFLAGS) $< -o $@
