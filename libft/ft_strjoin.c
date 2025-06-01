@@ -14,12 +14,12 @@
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
-	size_t	strlen;
+	size_t	stringLen;
 	char	*result;
 	char	*str;
 
-	strlen = ft_strlen(s1) + ft_strlen(s2) + 1;
-	str = (char *) malloc((strlen) * sizeof(char));
+	stringLen = ft_strlen(s1) + ft_strlen(s2) + 1;
+	str = (char *) malloc((stringLen) * sizeof(char));
 	if (!str)
 		return (0);
 	result = str;
