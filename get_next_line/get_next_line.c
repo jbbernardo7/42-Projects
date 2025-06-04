@@ -6,7 +6,7 @@
 /*   By: jbelece- <jbelece-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 12:28:41 by jbelece-          #+#    #+#             */
-/*   Updated: 2025/06/01 06:10:24 by jbelece-         ###   ########.fr       */
+/*   Updated: 2025/06/03 22:44:49 by jbelece-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char	*retrieve_line(char *queue)
 	size = ft_linelen(queue);
 	str = malloc(size + 1);
 	if (!str)
-		return (0);
+		return (NULL);
 	line = str;
 	while (size--)
 		*str++ = *queue++;

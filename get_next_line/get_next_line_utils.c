@@ -6,7 +6,7 @@
 /*   By: jbelece- <jbelece-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 12:28:33 by jbelece-          #+#    #+#             */
-/*   Updated: 2025/06/01 05:50:43 by jbelece-         ###   ########.fr       */
+/*   Updated: 2025/06/03 22:44:52 by jbelece-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*ft_queuejoin(char *queue, const char *buffer)
 	stringlen = ft_strlen(queue) + ft_strlen(buffer) + 1;
 	str = malloc(stringlen);
 	if (!str)
-		return (0);
+		return (NULL);
 	result = str;
 	old_queue = queue;
 	while (*queue)

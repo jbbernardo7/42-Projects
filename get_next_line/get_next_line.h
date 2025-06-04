@@ -6,7 +6,7 @@
 /*   By: jbelece- <jbelece-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 12:20:52 by jbelece-          #+#    #+#             */
-/*   Updated: 2025/06/01 04:15:56 by jbelece-         ###   ########.fr       */
+/*   Updated: 2025/06/03 22:38:39 by jbelece-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *str);
 size_t	ft_linelen(const char *str);
 char	*ft_queuejoin(char *queue, const char *buffer);
-char	*get_next_line(int f);
+char	*get_next_line(int fd);
 
 #endif
